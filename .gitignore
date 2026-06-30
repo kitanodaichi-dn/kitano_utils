@@ -1,0 +1,7 @@
+# Ignore generated/large data directories
+/src/datas/
+/kitanoutils/src/datas/
+/kitano_utils/src/datas/
+
+# Ignore timestamped fix directories: MMDD_HHMMSS_fix
+**/[0-1][0-9][0-3][0-9]_[0-2][0-9][0-5][0-9][0-5][0-9]_fix/
