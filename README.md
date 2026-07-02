@@ -1,4 +1,4 @@
-# kitano_utils
+# commentary_utils
 
 ## 動作手順
 
@@ -7,7 +7,7 @@
 
 ### 前提
 
-- 作業ディレクトリは `/home/82597AD240002/ws/simlingo/kitano_utils`
+- 作業ディレクトリは `/home/82597AD240002/ws/simlingo/commentary_utils`
 - simlingo リポジトリは `/home/82597AD240002/ws/simlingo` に配置されている
 
 ---
@@ -17,7 +17,7 @@
 Step 1 (データ格納) が完了していれば、以下の1コマンドで Step 2〜6 を自動実行できます。
 
 ```bash
-# kitano_utils ディレクトリで実行
+# commentary_utils ディレクトリで実行
 bash run_pipeline.sh 0629_141401
 ```
 
@@ -60,28 +60,28 @@ cd ..
 
 PYTHONPATH=/home/82597AD240002/ws/simlingo \
 python dataset_generation/language_labels/commentary/carla_commentary_generator_main.py \
-  --data-directory /home/82597AD240002/ws/simlingo/kitano_utils/src/datas/0629_141401_fix \
-  --output-directory kitano_utils/src/datas/0629_141401_fix/data/simlingo/noScenarios/routes/Town01/Rep0_0_route_0 \
+  --data-directory /home/82597AD240002/ws/simlingo/commentary_utils/src/datas/0629_141401_fix \
+  --output-directory commentary_utils/src/datas/0629_141401_fix/data/simlingo/noScenarios/routes/Town01/Rep0_0_route_0 \
   --path-keyframes /dev/null \
   --no-scenario
 ```
 
 ### Step 5: コメンタリーファイルの解凍
 
-kitano_utils ディレクトリに戻り、生成された `.gz` ファイルを展開します。
+commentary_utils ディレクトリに戻り、生成された `.gz` ファイルを展開します。
 
 ```bash
-cd kitano_utils
+cd commentary_utils
 
 python src/ungz.py \
-  /home/82597AD240002/ws/simlingo/kitano_utils/src/datas/0629_141401_fix/data/simlingo/noScenarios/routes/Town01/Rep0_0_route_0/simlingo/noScenarios/routes/Town01/Rep0_0_route_0/commentary
+  /home/82597AD240002/ws/simlingo/commentary_utils/src/datas/0629_141401_fix/data/simlingo/noScenarios/routes/Town01/Rep0_0_route_0/simlingo/noScenarios/routes/Town01/Rep0_0_route_0/commentary
 ```
 
 ### Step 6: コメンタリーの集計・確認
 
 ```bash
 python src/commentary.py \
-  /home/82597AD240002/ws/simlingo/kitano_utils/src/datas/0629_141401_fix/data/simlingo/noScenarios/routes/Town01/Rep0_0_route_0/simlingo/noScenarios/routes/Town01/Rep0_0_route_0/commentary/json
+  /home/82597AD240002/ws/simlingo/commentary_utils/src/datas/0629_141401_fix/data/simlingo/noScenarios/routes/Town01/Rep0_0_route_0/simlingo/noScenarios/routes/Town01/Rep0_0_route_0/commentary/json
 ```
 
 ---
@@ -89,7 +89,7 @@ python src/commentary.py \
 ## ディレクトリ構成
 
 ```
-kitano_utils/
+commentary_utils/
 ├── run_pipeline.sh             # Step 2〜6 一括実行スクリプト
 ├── src/
 │   ├── data/                   # 入力データ (git 管理外)
